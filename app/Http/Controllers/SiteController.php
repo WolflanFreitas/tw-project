@@ -44,7 +44,22 @@ class SiteController extends Controller
      */
     public function servicos()
     {
-        return "Página SERVIÇOS";
+        $servicos = [
+            1 => [
+                'nome' => 'Lavagem de Roupa',
+                'descricao' => 'descricao muito longa...'
+            ],
+            2 => [
+                'nome' => 'Lavagem de Coberta',
+                'descricao' => 'descricao muito longa...'
+            ],
+            3 => [
+                'nome' => 'Lavagem de Palitó',
+                'descricao' => 'descricao muito longa...'
+            ]
+        ];
+
+        return view('servicos',['servicos' => $servicos]);
     }
 
     /**
@@ -68,7 +83,7 @@ class SiteController extends Controller
                 'descricao' => 'descricao muito longa...'
             ]
         ];
-        return $servicos[$id]['nome'];
+        return view('servico',['servico' => $servicos[$id]]);
     }
 
 }
