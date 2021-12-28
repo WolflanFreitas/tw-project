@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SaudacaoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 
@@ -26,7 +27,5 @@ Route::get('/sobre',[SiteController::class,'sobre']);
 Route::get('/contato',[SiteController::class,'contato']);
 Route::get('/servicos',[SiteController::class,'servicos']);
 Route::get('/servico/{id}',[SiteController::class,'servico']);
-//Exemplo de Uso de função anônima para gerenciar as requisições feitas a rota
-Route::get('/saudacao/{nome?}',function (string $nome = 'TreinaWeb') {
-    return "Olá $nome";
-});
+//Single Action Controller
+Route::get('/saudacao/{nome?}',SaudacaoController::class);
