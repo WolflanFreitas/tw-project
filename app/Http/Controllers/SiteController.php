@@ -83,7 +83,18 @@ class SiteController extends Controller
                 'descricao' => 'descricao muito longa...'
             ]
         ];
-        return view('servico',['servico' => $servicos[$id]]);
+
+        //Verifica se o id do serviço existe no array $serviços
+        if ($id <= count($servicos)) {
+            return view('servico',['servico' => $servicos[$id]]);
+        }
+        else {
+            $servico = [
+                'nome' => 'Serviço Inexistente',
+                'descricao' => 'descricao muito longa...'
+            ];
+            return view('servico',['servico' => $servico]);
+        }
     }
 
 }
