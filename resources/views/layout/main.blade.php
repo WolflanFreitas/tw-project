@@ -10,23 +10,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+    <link rel="shortcut icon" href="{{asset('assets/favicon.ico')}}" />
     <title>@yield('title')</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success" style="margin-bottom: 30px;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Laravel</a>
+            <a class="navbar-brand" href="{{route('index')}}">Laravel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="{{route('home')}}">Home</a>
-                    <a class="nav-link" href="{{route('servicos')}}">Serviços</a>
+                    <a class="nav-link" aria-current="page" href="{{route('index')}}">Home</a>
+                    <a class="nav-link" href="{{route('servicos.index')}}">Serviços</a>
                     <a class="nav-link" href="{{route('contato')}}">Contato</a>
-                    <a class="nav-link" href="{{route('clientes')}}">Clientes</a>
+                    <a class="nav-link" href="{{route('clientes.index')}}">Clientes</a>
                 </div>
             </div>
         </div>

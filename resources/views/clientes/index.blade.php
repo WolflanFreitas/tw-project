@@ -6,7 +6,11 @@
 
     <div class="row">
 
-        <h1>Clientes Cadastrados</h1>
+        <div class="row">
+            <div class="col"><h1>Clientes Cadastrados</h1></div>
+            <div class="col" style="text-align: right"><a href="{{route('clientes.create')}}" class="btn btn-primary">Cadastrar Novo</a></div>
+        </div>
+
 
         <div class="table-responsive">
             <table class="table" style="text-align: center">
@@ -15,7 +19,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Endereço</th>
-                        <th scope="col">Ação</th>
+                        <th scope="col">Ações</th>
 
                     </tr>
                 </thead>
@@ -23,10 +27,9 @@
                         @foreach ($clientes as $cliente)
                         <tr>
                             <td scope="row">{{$cliente->id}}</td>
-                            <td>{{$cliente->nome}}</td>
+                            <td><a href="{{route('cliente.show',$cliente)}}">{{$cliente->nome}}</a></td>
                             <td>{{$cliente->endereco}}</td>
-                            <td>CRUD</td>
-
+                            <td></td>
                         </tr>
                         @endforeach
                 </tbody>

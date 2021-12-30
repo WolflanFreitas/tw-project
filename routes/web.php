@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SaudacaoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ServicoController;
 use App\Models\Client;
 
 /*
@@ -24,12 +25,14 @@ use App\Models\Client;
 */
 
 //Exemplo de Uso de controladores para gerenciar as requisições das rotas
-Route::get('/',[SiteController::class,'index'])->name('home');
+Route::get('/',[SiteController::class,'index'])->name('index');
 Route::get('/sobre',[SiteController::class,'sobre']);
 Route::get('/contato',[SiteController::class,'contato'])->name('contato');
-Route::get('/servicos',[SiteController::class,'servicos'])->name('servicos');
-Route::get('/servico/{id}',[SiteController::class,'servico']);
+Route::get('/servicos',[ServicoController::class,'index'])->name('servicos.index');
+Route::get('/servicos/{id}',[ServicoController::class,'show'])->name('servicos.show');
 //Single Action Controller
 Route::get('/saudacao/{nome?}',SaudacaoController::class);
 
-Route::get('/clientes',[ClientController::class,'index'])->name('clientes');
+Route::get('/clientes',[ClientController::class,'index'])->name('clientes.index');
+Route::get('/clientes/create',[ClientController::class,'create'])->name('clientes.create');
+Route::get('/clientes/{id}',[ClientController::class,'show'])->name('cliente.show');

@@ -11,6 +11,21 @@ class ClientController extends Controller
     {
         $clientes = Client::all();
 
-        return view('clients.index',['clientes' => $clientes]);
+        //Usar para gerar id
+        //$txid = md5(uniqid(rand (26,35), true));
+
+        return view('clientes.index',['clientes' => $clientes]);
+    }
+
+    public function show(int $id)
+    {
+        $cliente = Client::findOrFail($id);
+
+        return view('clientes.show',['cliente' => $cliente]);
+    }
+
+    public function create() {
+
+        return view('clientes.create');
     }
 }
