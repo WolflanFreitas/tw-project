@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
+
 class ClientController extends Controller
 {
     public function index()
@@ -27,5 +28,12 @@ class ClientController extends Controller
     public function create() {
 
         return view('clientes.create');
+    }
+
+    public function store(Request $request) {
+
+        $cliente = Client::create($request->all());
+
+        return redirect()->route('clientes.create')->with('clienteSalvo','Cliente Salvo com Sucesso!');
     }
 }

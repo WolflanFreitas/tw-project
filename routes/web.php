@@ -32,7 +32,8 @@ Route::get('/servicos',[ServicoController::class,'index'])->name('servicos.index
 Route::get('/servicos/{id}',[ServicoController::class,'show'])->name('servicos.show');
 //Single Action Controller
 Route::get('/saudacao/{nome?}',SaudacaoController::class);
-
+//CRUD Cliente
 Route::get('/clientes',[ClientController::class,'index'])->name('clientes.index');
-Route::get('/clientes/create',[ClientController::class,'create'])->name('clientes.create');
+Route::get('/clientes/criar',[ClientController::class,'create'])->name('clientes.create');
+Route::post('/clientes/salvar',[ClientController::class,'store'])->name('clientes.store');
 Route::get('/clientes/{id}',[ClientController::class,'show'])->name('cliente.show');

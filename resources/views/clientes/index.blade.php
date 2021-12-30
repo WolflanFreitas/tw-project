@@ -1,14 +1,17 @@
 @extends('layout.main')
 
-@section('title','Serviços')
+@section('title', 'Serviços')
 
 @section('content')
 
     <div class="row">
 
         <div class="row">
-            <div class="col"><h1>Clientes Cadastrados</h1></div>
-            <div class="col" style="text-align: right"><a href="{{route('clientes.create')}}" class="btn btn-primary">Cadastrar Novo</a></div>
+            <div class="col">
+                <h1>Clientes Cadastrados</h1>
+            </div>
+            <div class="col" style="text-align: right"><a href="{{ route('clientes.create') }}"
+                    class="btn btn-primary">Cadastrar Novo <i class="bi bi-person-plus-fill"></i></a></div>
         </div>
 
 
@@ -24,14 +27,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                        @foreach ($clientes as $cliente)
+                    @foreach ($clientes as $cliente)
                         <tr>
-                            <td scope="row">{{$cliente->id}}</td>
-                            <td><a href="{{route('cliente.show',$cliente)}}">{{$cliente->nome}}</a></td>
-                            <td>{{$cliente->endereco}}</td>
+                            <td scope="row">{{ $cliente->id }}</td>
+                            <td><a href="{{ route('cliente.show', $cliente) }}">{{ $cliente->nome }}</a></td>
+                            <td>{{ $cliente->endereco }}</td>
                             <td></td>
                         </tr>
-                        @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
