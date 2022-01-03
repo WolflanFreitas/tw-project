@@ -32,8 +32,19 @@ Route::get('/servicos',[ServicoController::class,'index'])->name('servicos.index
 Route::get('/servicos/{id}',[ServicoController::class,'show'])->name('servicos.show');
 //Single Action Controller
 Route::get('/saudacao/{nome?}',SaudacaoController::class);
+
 //CRUD Cliente
-Route::get('/clientes',[ClientController::class,'index'])->name('clientes.index');
-Route::get('/clientes/criar',[ClientController::class,'create'])->name('clientes.create');
-Route::post('/clientes/salvar',[ClientController::class,'store'])->name('clientes.store');
-Route::get('/clientes/{id}',[ClientController::class,'show'])->name('cliente.show');
+//READ
+// Route::get('/clientes',[ClientController::class,'index'])->name('clientes.index'); //EXIBIR TODOS
+// Route::get('/clientes/{id}',[ClientController::class,'show'])->name('clientes.show'); //EXIBIR UM
+//CREATE
+// Route::get('/clientes/criar',[ClientController::class,'create'])->name('clientes.create'); //VIEW COM FORMULÁRIO
+// Route::post('/clientes/salvar',[ClientController::class,'store'])->name('clientes.store'); //CONTROLADOR QUE SALVA O CLIENTE REQUISITADO POR FORMULÁRIO
+//UPDATE
+// Route::get('/clientes/{id}/edit',[ClientController::class,'edit'])->name('clientes.edit');
+// Route::put('/clientes/{id}',[ClientController::class,'update'])->name('clientes.update');
+//DELETE
+// Route::delete('/clientes/{id}',[ClientController::class,'destroy'])->name('clientes.destroy');
+
+//Caso utilize o padrão do Laravel todas as rotas de CRUD podem ser resumidas em uma no web.php "Muito legal!"
+Route::resource('clientes', ClientController::class);

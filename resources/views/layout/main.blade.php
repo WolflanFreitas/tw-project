@@ -31,8 +31,6 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" aria-current="page" href="{{ route('index') }}">Home</a>
-                    <a class="nav-link" href="{{ route('servicos.index') }}">Serviços</a>
-                    <a class="nav-link" href="{{ route('contato') }}">Contato</a>
                     <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
                 </div>
             </div>
@@ -78,6 +76,58 @@
             },
 
             toastr["success"]("Cliente armazenado com sucesso!", "Salvo")
+        </script>
+    @endif
+
+    @if (session('clienteEditado'))
+        <script>
+
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            },
+
+            toastr["info"]("Cliente editado com sucesso!", "Alterado")
+        </script>
+    @endif
+
+    @if (session('clienteExcluido'))
+        <script>
+
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            },
+
+            toastr["error"]("Cliente excluído com sucesso!", "Excluído")
         </script>
     @endif
 </body>
